@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from "react-redux";
 
 export default class Login extends Component {
   constructor() {
@@ -31,3 +32,18 @@ export default class Login extends Component {
     )
   }
 };
+
+const mapStateToProps = state => {
+  return {
+    loggedInAs: state.loggedInAs,
+    isCreditCardholder: state.isCreditCardholder
+  }
+}
+
+// This set of lines....
+// const connector = connect(mapStateToProps);
+// const connectedLogin = connector(Login);
+// export default connectedLogin;
+
+// ... does the same thing as this. This is more commin to see
+export default connect(mapStateToProps)(Login);
