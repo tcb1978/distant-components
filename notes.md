@@ -2,6 +2,8 @@
 
 ## What's the problem with distant components in React?
 
+Sharing data/state to distant components is cumbersome and error-prone
+
 ## What is Redux? Why/when do we use it?
 
 ## What are the steps to add Redux to a React app?

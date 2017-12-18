@@ -34,7 +34,11 @@ class App extends Component {
           setLoggedInAs={this.setLoggedInAs}
         />
         <MainContent/>
-        <Footer />
+        <Footer 
+          loggedInAs={loggedInAs}
+          isCreditCardHolder={isCreditCardHolder}
+          setIsCreditCardHolder={this.setIsCreditCardHolder}
+        />
       </div>
     );
   }
