@@ -1,10 +1,23 @@
 import React, { Component } from 'react';
-import { connect } from "react-redux";
-
+import { connect } from 'react-redux';
+import { setIsCreditCardHolder } from './ducks/reducer';
 
 class CreditCardApplication extends Component {
+  constructor() {
+    super();
+    this.state = {
+
+    };
+
+
+  }
+
+  updateCreditCardHolder(name) {
+    this.setState({ loginName: name })
+  }
+
   render() {
-    const { loggedInAs, isCreditCardHolder } = this.props;
+    const { loggedInAs, isCreditCardHolder, dispatch } = this.props;
 
     return (
       <div className="credit-card-application">
@@ -12,7 +25,8 @@ class CreditCardApplication extends Component {
         {loggedInAs && <div>
           {!isCreditCardHolder && <div>
             <p>Hi {loggedInAs}, apply now!</p>
-            <p><button className="button">Yes, sign me up!</button></p>
+            <p><button className="button"
+              onClick={() => dispatch(setIsCreditCardHolder(this.state.loginName))}>Yes, sign me up!</button></p>
           </div>}
           {isCreditCardHolder && "Thanks for signing up!"}
         </div>}
@@ -24,7 +38,7 @@ class CreditCardApplication extends Component {
 const mapStateToProps = state => {
   return {
     loggedInAs: state.loggedInAs,
-    isCreditCardholder: state.isCreditCardholder
+    isCreditCardHolder: state.isCreditCardHolder,
   }
 };
 
